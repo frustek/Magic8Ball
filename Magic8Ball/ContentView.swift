@@ -8,17 +8,44 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let advicesArray = ["Yes!","No!","Might be...","Sure!","Tomorrow :-)"]
+    @State var advice = ""
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack{
+            Color.black
+                .ignoresSafeArea(.all)
+            
+            VStack {
+                Spacer()
+                ZStack{
+                    Image("8ball")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    Text(advice)
+                        .foregroundStyle(.white)
+                        .frame(width: 140,
+                               height: 80,
+                               alignment: .top)
+                }
+                Spacer()
+                Button("Ask me") {
+                    advice = drawAdvice()
+                }
+            }
         }
-        .padding()
+    }
+    
+    func drawAdvice () -> String {
+        
+        //Draw advice
+        return(advicesArray[Int.random(in: 0...advicesArray.count-1)])
+        
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
