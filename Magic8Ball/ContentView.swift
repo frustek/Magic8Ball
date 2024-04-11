@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let advicesArray = ["Yes!","No!","Might be...","Sure!","Tomorrow!"]
+    let advicesArray = ["Yes!","No!","Might be...","Sure!","Tomorrow :-)"]
     @State var advice = ""
     var body: some View {
         ZStack{
@@ -26,7 +26,7 @@ struct ContentView: View {
                         .foregroundStyle(.white)
                         .frame(width: 140,
                                height: 80,
-                               alignment: .center)
+                               alignment: .top)
                 }
                 Spacer()
                 Button("Ask me") {
